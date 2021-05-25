@@ -6,7 +6,7 @@
     <property name="FILE_LOG_PATTERN"
               value="${FILE_LOG_PATTERN:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%-5p} ${PID:- } [%t] %logger{36} : %m%n}"/>
 
-<!--    <appender name="app" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="app" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>/var/log/app.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>logs/app-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
@@ -30,7 +30,7 @@
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
-    </appender>-->
+    </appender>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -39,12 +39,12 @@
     </appender>
 
     <logger name="org.hibernate.SQL" level="debug">
-<!--        <appender-ref ref="hibernate_sql"/>-->
+        <appender-ref ref="hibernate_sql"/>
     </logger>
     <logger name="com.example" level="debug"/>
 
     <root level="error">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="app"/>
     </root>
 
 </configuration>
